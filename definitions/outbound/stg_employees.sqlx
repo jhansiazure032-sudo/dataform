@@ -1,0 +1,17 @@
+config {
+  type: "table",
+  schema: "company_outbound",
+  name: "stg_employees",
+  description: "Cleaned employee staging table"
+}
+
+SELECT
+  CAST(EmployeeID AS INT64)   AS employee_id,
+  TRIM(Name)                  AS employee_name,
+  TRIM(Department)            AS department,
+  CAST(Salary AS INT64)       AS salary,
+  TRIM(City)                  AS city
+FROM
+  ${ref("emp")}
+WHERE
+  EmployeeID IS NOT NULL

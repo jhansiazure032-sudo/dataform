@@ -1,0 +1,21 @@
+config {
+  type: "view",
+  schema: "company_marts",
+  name: "mart_dept_salary_summary",
+  description: "Department-level salary aggregation mart"
+}
+
+SELECT
+  department,
+  city,
+  COUNT(EmployeeID)    AS headcount,
+  AVG(salary)           AS avg_salary,
+  MIN(salary)           AS min_salary,
+  MAX(salary)           AS max_salary,
+  SUM(salary)           AS total_salary_cost
+FROM
+  ${ref("emp")}
+GROUP BY
+  department, city
+ORDER BY
+  department, city
