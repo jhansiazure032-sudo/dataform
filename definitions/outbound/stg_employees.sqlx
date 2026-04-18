@@ -3,7 +3,7 @@ config {
   schema: "company_outbound",
   name: "stg_employees",
   description: "Cleaned employee staging table",
-  tags: ["daily_refresh"]
+  tags: ["outbound_refresh", "daily_refresh"]
 }
 SELECT
   CAST(EmployeeID AS INT64)   AS employee_id,

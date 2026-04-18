@@ -3,7 +3,7 @@ config {
   schema: "company_marts",
   name: "mart_dept_salary_summary",
   description: "Department-level salary aggregation mart",
-  tags: ["daily_refresh"]
+  tags: ["mart_refresh", "daily_refresh"]
 }
 
 SELECT
